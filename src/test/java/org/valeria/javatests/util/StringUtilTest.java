@@ -1,15 +1,12 @@
 package org.valeria.javatests.util;
 
-class StringUtilTest {
-    public static void main(String[] args) {
-        assertEquals(StringUtil.repeat("hola", 3), "holaholahola");
+import org.junit.Assert;
+import org.junit.Test;
 
-        assertEquals(StringUtil.repeat("hola", 1), "hola");
-    }
-
-    private static void assertEquals(String actual, String expected) {
-        if (!actual.equals(expected)) {
-            throw new RuntimeException("Test failed: expected " + expected + " but got " + actual);
-        }
+public class StringUtilTest {
+    @Test
+    public void testRepeat() {
+        Assert.assertEquals("holaholahola", StringUtil.repeat("hola", 3));
+        Assert.assertEquals( "hola", StringUtil.repeat("hola", 1));
     }
 }
