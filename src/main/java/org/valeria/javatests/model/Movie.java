@@ -1,5 +1,7 @@
 package org.valeria.javatests.model;
 
+import java.util.Objects;
+
 public class Movie {
     private Integer id;
     private String name;
@@ -31,5 +33,17 @@ public class Movie {
 
     public Integer getId() {
         return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return minutes == movie.minutes && Objects.equals(id, movie.id) && Objects.equals(name, movie.name) && gender == movie.gender;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, minutes, gender);
     }
 }
